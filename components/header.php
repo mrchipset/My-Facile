@@ -3,14 +3,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 // 检测是否包含主题配色 cookie
 if (isset($_COOKIE['themeColor'])) {
-    // 检测 cookie
-    if ($_COOKIE['themeColor'] == 'light-color' or $_COOKIE['themeColor'] == 'dark-color') {
-        // 根据主题配色 cookie 设置配色
-        $GLOBALS['color'] = $_COOKIE['themeColor'];
-    }else {
-        // 如果 cookie 内容有问题就使用主题默认配色
-        $GLOBALS['color'] = $this->options->themeColor;
-    }
+    // 根据主题配色 cookie 设置配色
+    $GLOBALS['color'] = $_COOKIE['themeColor'];
 }else {
     // 如果不包含主题配色 cookie 就使用后台设置的默认配色
     $GLOBALS['color'] = $this->options->themeColor;
@@ -49,29 +43,18 @@ if ($this->options->codeHighlight != 'enable-highlight') {
         <?php $this->options->title(); ?>
         <?php if ($this->is('index')) echo $this->options->tagline; ?>
     </title>
-    <?php if ($this->is('post') && $this->fields->keywords or $this->fields->summaryContent): ?>
-        <?php
-        $metaContent = array();
-        // 如果设置了自定义关键词就显示自定义关键词
-        if ($this->fields->keywords) $metaContent['keywords'] = $this->fields->keywords;
-        // 如果设置了自定义摘要内容就显示自定义摘要
-        if ($this->fields->summaryContent) $metaContent['description'] = $this->fields->summaryContent;
-        // 把包含自定义关键词和摘要的数组转为 URL 查询格式
-        $metaContent = urldecode(http_build_query($metaContent));
-        $this->header($metaContent);
-        ?>
-    <?php else: ?>
-        <?php $this->header(); ?>
-    <?php endif; ?>
     <link rel="icon" href="<?php echo $this->options->logoUrl?$this->options->logoUrl:$this->options->siteUrl . 'favicon.ico'; ?>" type="image/x-icon">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/bootstrap.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style.css'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/icon.css'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/style-20230622.css'); ?>" type="text/css">
     <!--自定义CSS-->
     <?php if ($this->options->cssCode): ?>
         <style type="text/css">
             <?php $this->options->cssCode(); ?>
         </style>
+    <?php endif; ?>
+    <?php if ($this->is('post') && $this->fields->keywords): ?>
+        <?php $this->header('keywords=' . $this->fields->keywords); ?>
+    <?php else: ?>
+        <?php $this->header(); ?>
     <?php endif; ?>
     <!--自定义HTML-->
     <?php if ($this->options->headHTML): ?>

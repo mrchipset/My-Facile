@@ -47,7 +47,7 @@ $components = explode(',', $components);
         <?php endif; ?>
         <?php if ($component == '主题配色'): ?>
             <!--主题配色-->
-            <section class="ml-xl-4 ml-lg-3 mb-5 change-color">
+            <!-- <section class="ml-xl-4 ml-lg-3 mb-5 change-color">
                 <h2 class="mb-4">主题配色</h2>
                 <ul aria-label="主题配色">
                     <li>
@@ -63,7 +63,7 @@ $components = explode(',', $components);
                         </div>
                     </li>
                 </ul>
-            </section>
+            </section> -->
         <?php endif; ?>
         <?php if ($component == '自定义' && $this->options->customizeHTML): ?>
             <section class="ml-xl-4 ml-lg-3 mb-5 customize">

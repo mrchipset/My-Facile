@@ -125,9 +125,12 @@ $this->need('components/header.php');
                     </div>
                     <div class="collapse" id="qr-link">
                         <div class="mt-4 qr-link">
-                            <p class="text-center mb-2">用手机扫描下方二维码可在手机上浏览和分享</p>
+                            <!-- use wechat/alipay qr code image -->
+                            <p class="text-center mb-2">感谢扫码支持</p>
                             <div class="text-center">
-                                <canvas id="qr" class="mb-1" aria-label="文章二维码"></canvas>
+                                <img src=<?php $this->options->themeUrl('assets/img/wechat.jpg')?> width=128 height=128 alt="wechat"/>
+                                <img src=<?php $this->options->themeUrl('assets/img/alipay.jpg')?> width=128 height=128 alt="wechat"/>
+                                <!-- <canvas id="qr" class="mb-1" aria-label="文章二维码"></canvas>
                                 <div class="link-box">
                                     <a href="https://service.weibo.com/share/share.php?url=<?php $this->permalink(); ?>&title=<?php $this->title(); ?>" target="_blank" rel="external nofollow" aria-label="分享到新浪微博" title="分享到新浪微博" data-toggle="tooltip" data-placement="top">
                                         <i class="icon-sina-weibo mr-1"></i>
@@ -138,7 +141,7 @@ $this->need('components/header.php');
                                     <a class="text-info" href="https://twitter.com/intent/tweet?url=<?php $this->permalink(); ?>&text=<?php $this->title(); ?>" target="_blank" rel="external nofollow" aria-label="分享到Twitter" title="分享到Twitter" data-toggle="tooltip" data-placement="top">
                                         <i class="icon-twitter mr-1"></i>
                                     </a>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -181,4 +184,5 @@ $this->need('components/header.php');
         </div>
     </div>
 <?php endif; ?>
+<?php require_once 'components/max-img.php'; ?>
 <?php $this->need('components/footer.php'); ?>
