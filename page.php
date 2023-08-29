@@ -56,7 +56,7 @@ $this->need('components/header.php');
                             <?php $this->content(); ?>
                         </div>
                     </article>
-                    <?php $this->need('components/comments.php'); ?>
+                    <!-- <?php $this->need('components/comments.php'); ?> -->
                 </main>
             </div>
             <?php $this->need('components/sidebar.php'); ?>

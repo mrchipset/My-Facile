@@ -1,11 +1,11 @@
 <?php
 /**
- * 这是一套简洁的博客主题 <a href="https://facile.misterma.com/" target="_blank">点击查看使用说明</a>
+ * 这是一套简洁的博客主题 <a href="https://facile.misterma.com/" target="_blank">点击查看使用说明, Forkz自Facile</a>
  *
- * @package Facile
- * @author Mr. Ma
+ * @package My-Facile
+ * @author Mr.Chip
  * @version 2.1.12
- * @link https://www.misterma.com
+ * @link 
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

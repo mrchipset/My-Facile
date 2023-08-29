@@ -7,7 +7,7 @@
             Powered by
             <a class="mx-1" href="http://www.typecho.org/" target="_blank">Typecho</a>
             Theme by
-            <a class="ml-1" href="https://github.com/changbin1997/Facile" target="_blank">Facile</a>
+            <a class="ml-1" href="https://github.com/mrchipset/My-Facile.git" target="_blank">My-Facile</a>
         </nav>
     </div>
 </footer>
