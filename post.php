@@ -120,7 +120,7 @@ $this->need('components/header.php');
                         <span class="pl-2"></span>
                         <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#qr-link" aria-expanded="false" aria-controls="collapseExample">
                             <i class="icon-share2"></i>
-                            <span>分享</span>
+                            <span>打赏</span>
                         </button>
                     </div>
                     <div class="collapse" id="qr-link">
