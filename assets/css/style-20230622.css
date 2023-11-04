@@ -157,9 +157,22 @@ a {
     background-color: transparent
 }
 
+p a {
+    color: #121212;
+    text-decoration: underline;
+}
+
 a:hover {
-    color: #91170a;
+    color: #1779c4;
     text-decoration: underline
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+h2 a{
+    text-decoration: none;
 }
 
 a:not([href]):not([class]),a:not([href]):not([class]):hover {
