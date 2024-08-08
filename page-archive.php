@@ -14,10 +14,10 @@ $this->need('components/header.php');
     <div class="row my-4">
         <div class="col-xl-8 col-lg-8 post-page mb-5 mb-sm-5 mb-md-5 mb-lg-0 mb-xl-0">
             <?php if ($this->options->breadcrumb == 'on'): ?>
-                <nav aria-label="路径" class="breadcrumb-nav bg">
+                <nav aria-label="<?php _t('路径'); ?>" class="breadcrumb-nav bg">
                     <ol class="breadcrumb m-0 pl-0 pr-0 pt-0 border-0">
                         <li class="breadcrumb-item">
-                            <a href="<?php $this->options->siteUrl(); ?>">首页</a>
+                            <a href="<?php $this->options->siteUrl(); ?>"><?php _t('首页'); ?></a>
                         </li>
                         <li tabindex="0" class="breadcrumb-item active" aria-current="page"><?php $this->title(); ?></li>
                     </ol>
@@ -32,7 +32,7 @@ $this->need('components/header.php');
                     </header>
                     <div class="post-content mt-4">
                         <?php Typecho_Widget::widget('Widget_Stat')->to($quantity); ?>
-                        <p>共包含 <?php $quantity->publishedPostsNum(); ?> 篇文章</p>
+                        <p><?php _t('共包含'); ?> <?php $quantity->publishedPostsNum(); ?> <?php _t('篇文章'); ?></p>
                         <?php
                         $stat = Typecho_Widget::widget('Widget_Stat');
                         Typecho_Widget::widget('Widget_Contents_Post_Recent', 'pageSize=' . $stat->publishedPostsNum)->to($archives);
@@ -53,9 +53,9 @@ $this->need('components/header.php');
                                 $year = $year_tmp;
                                 $mon = $mon_tmp;
                                 // 输出年份
-                                $output .= '<div class="archives-item"><h2>' . date('Y年m月', $archives->created) . '</h2><ul class="archives-list pl-2" aria-label="' . date('Y年m月', $archives->created) . '">';
+                                $output .= '<div class="archives-item"><h2>' . date(_t('Y年m月'), $archives->created) . '</h2><ul class="archives-list pl-2" aria-label="' . date(_t('Y年m月'), $archives->created) . '">';
                             }
-                            $output .= '<li><span class="day">' . date('d日', $archives->created) . '</span><div class="timeline"></div><div class="link-box"><a href="' . $archives->permalink . '">' . $archives->title . '</a></div></li>'; //输出文章
+                            $output .= '<li><span class="day">' . date(_t('d日'), $archives->created) . '</span><div class="timeline"></div><div class="link-box"><a href="' . $archives->permalink . '">' . $archives->title . '</a></div></li>'; //输出文章
                         }
                         $output .= '</ul></div></div>';
                         echo $output;

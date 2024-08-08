@@ -34,10 +34,10 @@ $this->need('components/header.php');
     <div class="row my-4">
         <div class="col-xl-8 col-lg-8 post-page mb-5 mb-sm-5 mb-md-5 mb-lg-0 mb-xl-0">
             <?php if ($this->options->breadcrumb == 'on'): ?>
-                <nav aria-label="路径" class="breadcrumb-nav bg">
+                <nav aria-label="<?php _t('路径'); ?>" class="breadcrumb-nav bg">
                     <ol class="breadcrumb m-0 pl-0 pr-0 pt-0 border-0">
                         <li class="breadcrumb-item">
-                            <a href="<?php $this->options->siteUrl(); ?>">首页</a>
+                            <a href="<?php $this->options->siteUrl(); ?>"><?php _t('首页'); ?></a>
                         </li>
                         <li tabindex="0" class="breadcrumb-item active" aria-current="page"><?php $this->title(); ?></li>
                     </ol>
@@ -53,21 +53,21 @@ $this->need('components/header.php');
                     <?php $headerImg = headerImageDisplay($this, $this->options->headerImage, $this->options->headerImageUrl); ?>
                     <?php if ($headerImg): ?>
                         <div class="header-img mb-3 mt-4">
-                            <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="文章头图" style="background-image: url(<?php echo $headerImg; ?>);" tabindex="-1"></a>
+                            <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="<?php _t('文章头图'); ?>" style="background-image: url(<?php echo $headerImg; ?>);" tabindex="-1"></a>
                         </div>
                     <?php endif; ?>
                     <div class="post-info mt-2">
-                        <span class="ml-1" title="发布日期" data-toggle="tooltip" data-placement="top">
+                        <span class="ml-1" title="<?php _t('发布日期'); ?>" data-toggle="tooltip" data-placement="top">
                                 <i class="icon-calendar mr-1" aria-hidden="true"></i>
-                                <?php $this->date('Y年m月d日'); ?>
+                                <?php $this->date(_t('Y年m月d日')); ?>
                             </span>
-                        <span class="ml-2" title="作者" data-toggle="tooltip" data-placement="top">
+                        <span class="ml-2" title="<?php _t('作者'); ?>" data-toggle="tooltip" data-placement="top">
                                 <i class="icon-user mr-1" aria-hidden="true"></i>
                                 <a href="<?php $this->author->permalink(); ?>" class="mr-2" title="作者：<?php $this->author(); ?>">
                                     <?php $this->author(); ?>
                                 </a>
                             </span>
-                        <span class="ml-2" title="阅读量" data-toggle="tooltip" data-placement="top">
+                        <span class="ml-2" title="<?php _t('阅读量'); ?>" data-toggle="tooltip" data-placement="top">
                                 <i class="icon-eye mr-1" aria-hidden="true"></i>
                                 <?php echo postViews($this); ?>
                             </span>

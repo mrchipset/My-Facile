@@ -35,16 +35,16 @@ $this->need('components/header.php');
             <?php else: ?>
                 <article class="no-content">
                     <hr>
-                    <h4 class="mb-3" role="alert">无法查找到包含 <b><?php $this->archiveTitle(array('search' => '%s'), '', ''); ?></b> 的文章！</h4 >
-                    <p>您可以尝试：</p>
+                    <h4 class="mb-3" role="alert"><?php _t('无法查找到包含'); ?> <b><?php $this->archiveTitle(array('search' => '%s'), '', ''); ?></b> <?php _t('的文章！'); ?></h4 >
+                    <p><?php _t('您可以尝试：'); ?></p>
                     <ol class="pl-3 mb-5">
-                        <li>更换关键字重新搜索</li>
-                        <li>在右侧或下方的文章分类区域选择分类查找</li>
-                        <li>在右侧或下方的标签云区域选择标签查找</li>
+                        <li><?php _t('更换关键字重新搜索'); ?></li>
+                        <li><?php _t('在右侧或下方的文章分类区域选择分类查找'); ?></li>
+                        <li><?php _t('在右侧或下方的标签云区域选择标签查找'); ?></li>
                     </ol>
                 </article>
             <?php endif; ?>
-            <nav class="page-nav my-5" aria-label="分页导航">
+            <nav class="page-nav my-5" aria-label="<?php _t('分页导航'); ?>">
                 <?php $this->pageNav('<i class="icon-chevron-left"></i>', '<i class="icon-chevron-right"></i>', 1, '...', array('wrapTag' => 'ul', 'wrapClass' => 'pagination justify-content-center', 'itemTag' => 'li', 'textTag' => 'a', 'currentClass' => 'active', 'prevClass' => 'prev', 'nextClass' => 'next')); ?>
             </nav>
         </div>
