@@ -8,7 +8,7 @@ while ($this->next()):
         <?php $headerImage = headerImageDisplay($this, $this->options->headerImage, $this->options->headerImageUrl); ?>
         <?php if (getPostListHeaderImageStyle($this->fields->postListHeaderImageStyle, $this->options->postListHeaderImageStyle) == 'max' && $headerImage): ?>
             <div class="header-img mb-4">
-                <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="文章头图" style="background-image: url(<?php echo $headerImage; ?>);" tabindex="-1"></a>
+                <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="<?php _t('文章头图'); ?>" style="background-image: url(<?php echo $headerImage; ?>);" tabindex="-1"></a>
             </div>
         <?php endif; ?>
         <div class="post-container">
@@ -20,17 +20,17 @@ while ($this->next()):
                     </a>
                 </h2>
                 <div class="post-info mt-2">
-                    <span class="ml-1" title="发布日期" data-toggle="tooltip" data-placement="top">
+                    <span class="ml-1" title="<?php _t('发布日期'); ?>" data-toggle="tooltip" data-placement="top">
                         <i class="icon-calendar mr-2" aria-hidden="true"></i>
                         <?php $this->date('Y年m月d日'); ?>
                     </span>
-                    <span class="ml-2" title="作者" data-toggle="tooltip" data-placement="top">
+                    <span class="ml-2" title="<?php _t('作者'); ?>" data-toggle="tooltip" data-placement="top">
                         <i class="icon-user mr-2" aria-hidden="true"></i>
-                        <a href="<?php $this->author->permalink(); ?>" class="mr-2" title="作者：<?php $this->author(); ?>">
+                        <a href="<?php $this->author->permalink(); ?>" class="mr-2" title="<?php _t('作者'); ?><?php $this->author(); ?>">
                             <?php $this->author(); ?>
                         </a>
                     </span>
-                    <span class="ml-2" title="阅读量" data-toggle="tooltip" data-placement="top">
+                    <span class="ml-2" title="<?php _t('阅读量'); ?>" data-toggle="tooltip" data-placement="top">
                         <i class="icon-eye mr-2"></i>
                         <?php echo postViews($this); ?>
                     </span>
@@ -47,26 +47,26 @@ while ($this->next()):
                         <div class="more-link-wrapper">
                             <div>
                                 <a href="<?php $this->permalink(); ?>" class="btn btn-sm mr-3 read-more">
-                                    阅读全文
+                                <?php _t('阅读全文'); ?>
                                     <i class="icon-arrow-right2"></i>
                                 </a>
                                 <a href="<?php $this->permalink() ?>#comments" class="comment-count">
                                     <i class="icon-bubble mr-1"></i>
-                                    <b><?php $this->commentsNum('%d 评论'); ?></b>
+                                    <b><?php $this->commentsNum(_t('%d 评论')); ?></b>
                                 </a>
                             </div>
                             <?php if ($this->user->hasLogin()): ?>
                                 <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block">
                                     <a href="<?php echo $this->options->siteUrl . 'admin/write-post.php?cid=' . $this->cid; ?>" class="float-right edit-link">
                                         <i class="icon-pencil mr-1"></i>
-                                        <b>编辑</b>
+                                        <b><?php _t('编辑'); ?></b>
                                     </a>
                                 </div>
                             <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4 col-5 mini-header-image pl-0">
-                        <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="文章头图" style="background-image: url(<?php echo $headerImage; ?>);" tabindex="-1"></a>
+                        <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="<?php _t('文章头图'); ?>" style="background-image: url(<?php echo $headerImage; ?>);" tabindex="-1"></a>
                     </div>
                 </div>
             <?php else: ?>
@@ -77,19 +77,19 @@ while ($this->next()):
                     <div class="more-link-wrapper">
                         <div>
                             <a href="<?php $this->permalink(); ?>" class="btn btn-sm mr-3 read-more">
-                                阅读全文
+                            <?php _t('阅读全文'); ?>
                                 <i class="icon-arrow-right2"></i>
                             </a>
                             <a href="<?php $this->permalink() ?>#comments" class="comment-count">
                                 <i class="icon-bubble mr-1"></i>
-                                <b><?php $this->commentsNum('%d 评论'); ?></b>
+                                <b><?php $this->commentsNum(_t('%d 评论')); ?></b>
                             </a>
                         </div>
                         <?php if ($this->user->hasLogin()): ?>
                             <div class="d-none d-sm-block d-md-block d-lg-block d-xl-block">
                                 <a href="<?php echo $this->options->siteUrl . 'admin/write-post.php?cid=' . $this->cid; ?>" class="float-right edit-link">
                                     <i class="icon-pencil mr-1"></i>
-                                    <b>编辑</b>
+                                    <b><?php _t('编辑'); ?></b>
                                 </a>
                             </div>
                         <?php endif; ?>
