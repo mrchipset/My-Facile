@@ -12,7 +12,7 @@
     </div>
 </footer>
 
-<button class="btn text-primary rounded-circle d-none" id="to-top-btn" type="button" aria-label="<?php _t('返回顶部'); ?>" title="<?php _t('返回顶部'); ?>">
+<button class="btn text-primary rounded-circle d-none" id="to-top-btn" type="button" aria-label="<?php _e('返回顶部'); ?>" title="<?php _e('返回顶部'); ?>">
     <i class="icon-arrow-up"></i>
 </button>
 

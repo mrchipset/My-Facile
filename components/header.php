@@ -34,10 +34,10 @@ if ($this->options->codeHighlight != 'enable-highlight') {
     <title>
         <?php
         $this->archiveTitle(array(
-            'category'  =>  _t('分类 %s 下的文章'),
-            'search'    =>  _t('包含关键字 %s 的文章'),
-            'tag'       =>  _t('标签 %s 下的文章'),
-            'author'    =>  _t('%s 发布的文章')
+            'category'  =>  _e('分类 %s 下的文章'),
+            'search'    =>  _e('包含关键字 %s 的文章'),
+            'tag'       =>  _e('标签 %s 下的文章'),
+            'author'    =>  _e('%s 发布的文章')
         ), '', ' - ');
         ?>
         <?php $this->options->title(); ?>
@@ -66,13 +66,13 @@ if ($this->options->codeHighlight != 'enable-highlight') {
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="<?php _t('导航菜单'); ?>">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="<?php _e('导航菜单'); ?>">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item <?php if ($this->is('index')) echo 'active'; ?>">
-                        <a class="nav-link" href="<?php $this->options->siteUrl(); ?>" <?php if ($this->is('index')) echo 'aria-current="page"'; ?>><?php _t('首页'); ?></a>
+                        <a class="nav-link" href="<?php $this->options->siteUrl(); ?>" <?php if ($this->is('index')) echo 'aria-current="page"'; ?>><?php _e('首页'); ?></a>
                     </li>
                     <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
                     <?php while($pages->next()): ?>
@@ -85,9 +85,9 @@ if ($this->options->codeHighlight != 'enable-highlight') {
                 </ul>
                 <form class="form-inline my-2 my-lg-0" action="<?php $this->options->siteUrl(); ?>" method="post" role="search">
                     <div class="input-group">
-                        <input class="form-control" type="search" placeholder="<?php _t('搜索'); ?>" required name="s">
+                        <input class="form-control" type="search" placeholder="<?php _e('搜索'); ?>" required name="s">
                         <div class="input-group-append">
-                            <button class="btn btn-primary my-sm-0" type="submit" aria-label="<?php _t('搜索'); ?>" title="<?php _t('搜索'); ?>" data-toggle="tooltip" data-placement="bottom">
+                            <button class="btn btn-primary my-sm-0" type="submit" aria-label="<?php _e('搜索'); ?>" title="<?php _e('搜索'); ?>" data-toggle="tooltip" data-placement="bottom">
                                 <i class="icon-search"></i>
                             </button>
                         </div>

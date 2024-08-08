@@ -19,7 +19,7 @@ $this->need('components/header.php');
     <div class="row mt-4">
         <div class="col-xl-8 col-lg-8 post-list">
             <?php $this->need('components/post-list.php'); ?>
-            <nav class="page-nav my-5" aria-label="<?php _t('分页导航'); ?>">
+            <nav class="page-nav my-5" aria-label="<?php _e('分页导航'); ?>">
                 <?php $this->pageNav('<i class="icon-chevron-left"></i>', '<i class="icon-chevron-right"></i>', 1, '...', array('wrapTag' => 'ul', 'wrapClass' => 'pagination justify-content-center', 'itemTag' => 'li', 'textTag' => 'a', 'currentClass' => 'active', 'prevClass' => 'prev', 'nextClass' => 'next')); ?>
             </nav>
         </div>

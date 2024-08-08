@@ -5,14 +5,14 @@
     <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
         <div class="row">
             <div class="col-12">
-                <label for="textarea" class="d-block"><?php _t('评论内容'); ?></label>
-                <textarea name="text" id="textarea" placeholder="<?php _t('请在此处输入评论内容'); ?>" class="form-control" required></textarea>
+                <label for="textarea" class="d-block"><?php _e('评论内容'); ?></label>
+                <textarea name="text" id="textarea" placeholder="<?php _e('请在此处输入评论内容'); ?>" class="form-control" required></textarea>
             </div>
             <!--Emoji表情区域-->
             <?php if ($this->options->emojiPanel == 'show'): ?>
             <div class="col-12" id="emoji-box">
                 <button aria-expanded="false" type="button" class="btn btn-sm" id="show-emoji-btn" data-url="<?php $this->options->themeUrl('emoji.php'); ?>">😀 Emoji表情</button>
-                <div id="emoji-panel" class="bg-light border shadow rounded" role="dialog" aria-label="<?php _t('Emoji表情面板（按 ESC 可关闭表情面板并转到评论内容输入框。）'); ?>">
+                <div id="emoji-panel" class="bg-light border shadow rounded" role="dialog" aria-label="<?php _e('Emoji表情面板（按 ESC 可关闭表情面板并转到评论内容输入框。）'); ?>">
                     <div class="card card-body p-0 m-0 border-bottom">
                         <div id="emoji-classification" class="m-0 btn-group" role="group" aria-label="表情类型">
                             <button role="radio" aria-checked="true" aria-label="面部表情" title="面部表情" type="button" class="btn btn btn-sm selected" data-classification="smileys">😀</button>
@@ -26,38 +26,38 @@
                             <button role="radio" aria-checked="false" aria-label="符号" title="符号" type="button" class="btn btn-sm>" data-classification="symbols">❤</button>
                         </div>
                     </div>
-                    <h5 class="text-center py-2 m-0 border-bottom" id="emoji-title"><?php _t('表情类型'); ?></h5>
-                    <div id="emoji-list" class="clearfix" role="list" aria-label="<?php _t('表情列表（按回车可以把表情添加到评论内容输入框）'); ?>"></div>
+                    <h5 class="text-center py-2 m-0 border-bottom" id="emoji-title"><?php _e('表情类型'); ?></h5>
+                    <div id="emoji-list" class="clearfix" role="list" aria-label="<?php _e('表情列表（按回车可以把表情添加到评论内容输入框）'); ?>"></div>
                 </div>
             </div>
             <?php endif; ?>
             <?php if($this->user->hasLogin()): ?>
                 <div class="col-lg-12 comment-user">
                     <?php _e('登录身份: '); ?>
-                    <a href="<?php $this->options->profileUrl(); ?>" title="<?php _t('当前登录身份：'); ?><?php $this->user->screenName(); ?>">
+                    <a href="<?php $this->options->profileUrl(); ?>" title="<?php _e('当前登录身份：'); ?><?php $this->user->screenName(); ?>">
                         <?php $this->user->screenName(); ?>
                     </a>.
-                    <a href="<?php $this->options->logoutUrl(); ?>" title="退出"><?php _t('退出'); ?> &raquo;</a>
+                    <a href="<?php $this->options->logoutUrl(); ?>" title="退出"><?php _e('退出'); ?> &raquo;</a>
                 </div>
             <?php else: ?>
                 <!--姓名输入-->
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <label for="author" class="d-block"><?php _t('姓名'); ?></label>
-                    <input type="text" class="form-control" placeholder="<?php _t('请输入您的姓名或昵称'); ?>" name="author" id="author" value="<?php $this->remember('author'); ?>" required>
+                    <label for="author" class="d-block"><?php _e('姓名'); ?></label>
+                    <input type="text" class="form-control" placeholder="<?php _e('请输入您的姓名或昵称'); ?>" name="author" id="author" value="<?php $this->remember('author'); ?>" required>
                 </div>
                 <!--邮箱地址输入-->
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <label for="mail" class="d-block"><?php _t('电子邮件地址（不会公开）'); ?></label>
-                    <input type="email" class="form-control" placeholder="<?php _t('请输入您的电子邮件地址'); ?>" name="mail" id="mail" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?> required <?php endif; ?>>
+                    <label for="mail" class="d-block"><?php _e('电子邮件地址（不会公开）'); ?></label>
+                    <input type="email" class="form-control" placeholder="<?php _e('请输入您的电子邮件地址'); ?>" name="mail" id="mail" value="<?php $this->remember('mail'); ?>" <?php if ($this->options->commentsRequireMail): ?> required <?php endif; ?>>
                 </div>
                 <!--网站地址输入-->
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <label for="url" class="d-block"><?php _t('网站（选填）'); ?></label>
-                    <input type="url" class="form-control" placeholder="<?php _t('请输入您的网站或博客地址'); ?>" name="url" id="url" value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?> required <?php endif; ?>>
+                    <label for="url" class="d-block"><?php _e('网站（选填）'); ?></label>
+                    <input type="url" class="form-control" placeholder="<?php _e('请输入您的网站或博客地址'); ?>" name="url" id="url" value="<?php $this->remember('url'); ?>" <?php if ($this->options->commentsRequireURL): ?> required <?php endif; ?>>
                 </div>
             <?php endif; ?>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary"><?php _t('提交评论'); ?></button>
+                <button type="submit" class="btn btn-primary"><?php _e('提交评论'); ?></button>
                 <?php $comments->cancelReply(); ?>
             </div>
         </div>

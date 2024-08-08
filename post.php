@@ -38,35 +38,35 @@ $this->need('components/header.php');
                     <?php $headerImg = headerImageDisplay($this, $this->options->headerImage, $this->options->headerImageUrl); ?>
                     <?php if ($headerImg): ?>
                         <div class="header-img mb-3 mt-4">
-                            <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="<?php _t('文章头图'); ?>" style="background-image: url(<?php echo $headerImg; ?>);" tabindex="-1"></a>
+                            <a <?php if ($this->options->headerImageStyle == 'rounded-corners') echo 'class="rounded"'; ?> href="<?php $this->permalink(); ?>" aria-hidden="true" aria-label="<?php _e('文章头图'); ?>" style="background-image: url(<?php echo $headerImg; ?>);" tabindex="-1"></a>
                         </div>
                     <?php endif; ?>
                     <div class="post-info mt-2">
-                        <span class="ml-1" title=<?php _t('发布日期');?> data-toggle="tooltip" data-placement="top">
+                        <span class="ml-1" title=<?php _e('发布日期');?> data-toggle="tooltip" data-placement="top">
                             <i class="icon-calendar mr-2" aria-hidden="true"></i>
-                            <?php $this->date(_t('Y年m月d日')); ?>
+                            <?php $this->date(_e('Y年m月d日')); ?>
                         </span>
-                        <span class="ml-2" title=<?php _t('作者');?> data-toggle="tooltip" data-placement="top">
+                        <span class="ml-2" title=<?php _e('作者');?> data-toggle="tooltip" data-placement="top">
                             <i class="icon-user mr-2" aria-hidden="true"></i>
-                            <a href="<?php $this->author->permalink(); ?>" class="mr-2" title="<?php _t('作者：'); $this->author(); ?>">
+                            <a href="<?php $this->author->permalink(); ?>" class="mr-2" title="<?php _e('作者：'); $this->author(); ?>">
                                 <?php $this->author(); ?>
                             </a>
                         </span>
-                        <span class="ml-2" title="<?php _t('阅读量');?>" data-toggle="tooltip" data-placement="top">
+                        <span class="ml-2" title="<?php _e('阅读量');?>" data-toggle="tooltip" data-placement="top">
                             <i class="icon-eye mr-2" aria-hidden="true"></i>
                             <?php echo postViews($this); ?>
                         </span>
                         <?php if ($this->user->hasLogin()): ?>
                         <span class="ml-2">
                             <i class="icon-pencil mr-2" aria-hidden="true"></i>
-                            <a href="<?php echo $this->options->siteUrl . 'admin/write-post.php?cid=' . $this->cid; ?>"><?php _t('编辑') ?></a>
+                            <a href="<?php echo $this->options->siteUrl . 'admin/write-post.php?cid=' . $this->cid; ?>"><?php _e('编辑') ?></a>
                         </span>
                         <?php endif; ?>
                     </div>
                     <div class="post-content mt-4" data-code-line-num="<?php $this->options->codeLineNum(); ?>">
                         <?php if (is_numeric($this->fields->expired) && (int)$this->fields->expired > 0 && $this->created + (int)$this->fields->expired * 86400 < time()): ?>
                             <!--警示信息-->
-                            <div class="alert expiration-reminder" role="alert"><?php _t('这篇文章发布于 ');?> <?php echo getDays($this->created, time()); ?> <?php _t('天前，其中的信息可能已经有所发展或是发生改变！');?></div>
+                            <div class="alert expiration-reminder" role="alert"><?php _e('这篇文章发布于 ');?> <?php echo getDays($this->created, time()); ?> <?php _e('天前，其中的信息可能已经有所发展或是发生改变！');?></div>
                         <?php endif; ?>
                         <?php $GLOBALS['postPage'] = preg_split('/\[-page-]|<p>\[-page-]<\/p>/', $this->content); ?>
                         <?php $postPageNum = isset($_GET['post-page'])?$_GET['post-page']:1; ?>
@@ -75,11 +75,11 @@ $this->need('components/header.php');
                         <?php echo $this->options->imagelazyloading == 'on'?replaceImgSrc($GLOBALS['post']['content']):$GLOBALS['post']['content']; ?>
                     </div>
                     <?php if (count($GLOBALS['postPage']) > 1): ?>
-                        <nav aria-label="<?php _t('文章分页'); ?>" class="py-3 post-pagination">
+                        <nav aria-label="<?php _e('文章分页'); ?>" class="py-3 post-pagination">
                             <ol class="pagination justify-content-center">
                                 <?php if ($postPageNum > 1): ?>
                                     <li class="page-item">
-                                        <a href="<?php echo $this->permalink . '?post-page=' . ($postPageNum - 1); ?>" class="page-link previous-page" aria-label="<?php _t('上一页') ?>" title="<?php _t('上一页（左光标键）'); ?>" data-toggle="tooltip" data-placement="top">
+                                        <a href="<?php echo $this->permalink . '?post-page=' . ($postPageNum - 1); ?>" class="page-link previous-page" aria-label="<?php _e('上一页') ?>" title="<?php _e('上一页（左光标键）'); ?>" data-toggle="tooltip" data-placement="top">
                                             <i class="icon-chevron-left"></i>
                                         </a>
                                     </li>
@@ -91,7 +91,7 @@ $this->need('components/header.php');
                                 <?php endfor; ?>
                                 <?php if ($postPageNum < count($GLOBALS['postPage'])): ?>
                                     <li class="page-item">
-                                        <a href="<?php echo $this->permalink . '?post-page=' . ($postPageNum + 1); ?>" class="page-link next-page" aria-label="<?php _t('下一页');?>" title="<?php _t('下一页（右光标键）');?>" data-toggle="tooltip" data-placement="top">
+                                        <a href="<?php echo $this->permalink . '?post-page=' . ($postPageNum + 1); ?>" class="page-link next-page" aria-label="<?php _e('下一页');?>" title="<?php _e('下一页（右光标键）');?>" data-toggle="tooltip" data-placement="top">
                                             <i class="icon-chevron-right"></i>
                                         </a>
                                     </li>
@@ -100,13 +100,13 @@ $this->need('components/header.php');
                         </nav>
                     <?php endif; ?>
                     <div class="category-tag clearfix my-4">
-                        <div class="post-category float-left" role="group" aria-label="<?php _t('文章分类'); ?>">
+                        <div class="post-category float-left" role="group" aria-label="<?php _e('文章分类'); ?>">
                             <i class="icon-folder-open mr-1" aria-hidden="true"></i>
                             <?php $this->category(' '); ?>
                         </div>
-                        <div class="post-tag float-right" role="group" aria-label="<?php _t('标签'); ?>">
+                        <div class="post-tag float-right" role="group" aria-label="<?php _e('标签'); ?>">
                             <i class="icon-price-tag mr-1" aria-hidden="true"></i>
-                            <?php $this->tags(' ', true, _t('暂无标签')); ?>
+                            <?php $this->tags(' ', true, _e('暂无标签')); ?>
                         </div>
                     </div>
                 </article>
@@ -115,7 +115,7 @@ $this->need('components/header.php');
                         <?php $agree = $this->hidden?array('agree' => 0, 'recording' => true):agreeNum($this->cid); ?>
                         <button type="button" class="btn btn-sm agree-btn" <?php if ($agree['recording']) echo 'disabled'; ?> data-cid="<?php echo $this->cid; ?>" data-url="<?php $this->permalink(); ?>">
                             <i class="icon-thumbs-up"></i>
-                            <span class="agree-num"><?php _t('赞'); ?> <?php echo $agree['agree']; ?></span>
+                            <span class="agree-num"><?php _e('赞'); ?> <?php echo $agree['agree']; ?></span>
                         </button>
                         <span class="pl-2"></span>
                         <button type="button" class="btn btn-sm" data-toggle="collapse" data-target="#qr-link" aria-expanded="false" aria-controls="collapseExample">
@@ -126,7 +126,7 @@ $this->need('components/header.php');
                     <div class="collapse" id="qr-link">
                         <div class="mt-4 qr-link">
                             <!-- use wechat/alipay qr code image -->
-                            <p class="text-center mb-2"><?php _t('感谢扫码支持'); ?></p>
+                            <p class="text-center mb-2"><?php _e('感谢扫码支持'); ?></p>
                             <div class="text-center">
                                 <img src=<?php $this->options->themeUrl('assets/img/wechat.jpg')?> width=128 height=128 alt="wechat"/>
                                 <img src=<?php $this->options->themeUrl('assets/img/alipay.jpg')?> width=128 height=128 alt="wechat"/>
@@ -149,15 +149,15 @@ $this->need('components/header.php');
                 <div class="post-navigation border-top border-bottom py-4">
                     <nav class="row">
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 previous">
-                            <div><?php _t('上一篇'); ?></div>
+                            <div><?php _e('上一篇'); ?></div>
                             <div class="text-truncate">
-                                <?php $this->thePrev('%s', _t('没有了')); ?>
+                                <?php $this->thePrev('%s', _e('没有了')); ?>
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 next">
-                            <div class="text-lg-right text-xl-right text-md-right"><?php _t('下一篇'); ?></div>
+                            <div class="text-lg-right text-xl-right text-md-right"><?php _e('下一篇'); ?></div>
                             <div class="text-lg-right text-xl-right text-md-right next-box text-truncate">
-                                <?php $this->theNext('%s', _t('没有了')); ?>
+                                <?php $this->theNext('%s', _e('没有了')); ?>
                             </div>
                         </div>
                     </nav>
@@ -169,13 +169,13 @@ $this->need('components/header.php');
     </div>
 </div>
 <?php if ($this->options->directoryMobile == 'enable'): ?>
-    <button type="button" id="directory-btn" class="btn text-primary rounded-circle border d-block d-sm-block d-md-block d-lg-none d-xl-none" aria-expanded="false" aria-label="<?php _t('目录'); ?>" title="<?php _t('目录'); ?>">
+    <button type="button" id="directory-btn" class="btn text-primary rounded-circle border d-block d-sm-block d-md-block d-lg-none d-xl-none" aria-expanded="false" aria-label="<?php _e('目录'); ?>" title="<?php _e('目录'); ?>">
         <i class="icon-list-ol"></i>
     </button>
     <div id="directory-mobile" class="border rounded shadow" style="display: none;">
         <div class="title-bar border-bottom">
-            <h5 class="m-0"><?php _t('目录'); ?></h5>
-            <button type="button" class="btn btn-sm close-btn" aria-label="<?php _t('关闭目录'); ?>" title="<?php _t('关闭目录'); ?>">
+            <h5 class="m-0"><?php _e('目录'); ?></h5>
+            <button type="button" class="btn btn-sm close-btn" aria-label="<?php _e('关闭目录'); ?>" title="<?php _e('关闭目录'); ?>">
                 <i class="icon-cancel-circle"></i>
             </button>
         </div>

@@ -41,11 +41,11 @@ function threadedComments($comments, $options) {
                 <div class="comment-info float-left">
                     <b class="author"><?php $comments->author(); ?></b>
                     <?php if ($comments->authorId == $comments->ownerId): ?>
-                        <span class="badge badge-dark"><?php _t('作者'); ?></span>
+                        <span class="badge badge-dark"><?php _e('作者'); ?></span>
                     <?php endif; ?>
                     <?php echo reply($comments->parent); ?>
                     <?php if ($comments->status != 'approved'): ?>
-                        <span class="badge badge-dark" title="<?php _t('您的评论目前只有您自己能看到，审核通过后才会公开显示。'); ?>" data-toggle="tooltip" data-placement="top"><?php _t('评论审核中'); ?></span>
+                        <span class="badge badge-dark" title="<?php _e('您的评论目前只有您自己能看到，审核通过后才会公开显示。'); ?>" data-toggle="tooltip" data-placement="top"><?php _e('评论审核中'); ?></span>
                     <?php endif; ?>
                     <span class="comment-time">
                         <?php echo dateFormat($comments->date->timeStamp, $GLOBALS['commentDateFormat']); ?>
@@ -67,16 +67,16 @@ function threadedComments($comments, $options) {
     </li>
 <?php } ?>
 
-<div id="comments" aria-label="<?php _t('评论区'); ?>">
+<div id="comments" aria-label="<?php _e('评论区'); ?>">
     <?php $this->comments()->to($comments); ?>
     <?php if ($this->options->commentInput == 'top') require_once 'comment-input.php'; ?>
     <?php if ($comments->have()): ?>
         <div class="comments-lists">
-            <h2><?php $this->commentsNum(_t('暂无评论'), _t('仅有一条评论'), _t('已有 %d 条评论')); ?></h2>
+            <h2><?php $this->commentsNum(_e('暂无评论'), _e('仅有一条评论'), _e('已有 %d 条评论')); ?></h2>
 
             <?php $comments->listComments(); ?>
 
-            <nav class="page-nav my-5" aria-label="<?php _t('分页导航'); ?>">
+            <nav class="page-nav my-5" aria-label="<?php _e('分页导航'); ?>">
                 <?php $comments->pageNav('<i class="icon-chevron-left"></i>', '<i class="icon-chevron-right"></i>', 1, '...', array('wrapTag' => 'ul', 'wrapClass' => 'pagination justify-content-center', 'itemTag' => 'li', 'textTag' => 'a', 'currentClass' => 'active', 'prevClass' => 'prev', 'nextClass' => 'next')); ?>
             </nav>
 
